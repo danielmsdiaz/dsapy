@@ -16,6 +16,30 @@ class LinkedList:
             print(temp.data)
             temp = temp.next
 
+    def prepend(self, value):
+        new_node = Node(value)
+        if(self.length < 1):
+            self.head = new_node
+            self.tail = new_node
+        else:
+            temp = self.head
+            self.head = new_node
+            self.head.next = temp
+
+        self.length += 1
+        return True
+
+    def pop_first(self):
+        if(self.head is None):
+                return None      
+        elif(self.length == 1):
+                self.head = None
+                self.tail = None
+        else:
+            self.head = self.head.next
+
+        self.length -= 1
+        return True
 
     def append(self, value):
         new_node = Node(value)
@@ -31,6 +55,49 @@ class LinkedList:
 
         return True
 
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+
+        count = 0
+        temp = self.head
+
+        while count < index:
+            temp = temp.next
+            count += 1
+
+        print("get: ", temp.data)
+        return temp
+    
+    # def set_value(self, index, value):
+    #         if index < 0 or index >= self.length:
+    #             return None
+    
+    #         count = 0
+    #         temp = self.head
+    
+    #         while count < index:
+    #             temp = temp.next
+    #             count += 1
+    
+    #         print("valor inicial: ", temp.data)
+    #         temp.data = value
+    #         print("valor alterado: ", temp.data)
+    #         return temp
+        
+    def set_value(self, index, value):
+            temp = self.get(index)
+            
+            if(temp is None):
+                return False
+            else:
+                temp.data = value
+            
+            print("valor inicial: ", temp.data)
+            temp.data = value
+            print("valor alterado: ", temp.data)
+            return temp
+                    
 
 
     def pop(self):
@@ -61,14 +128,27 @@ class LinkedList:
 my_linked_list = LinkedList(2)
 my_linked_list.append(3)
 my_linked_list.append(45)
-print("lista inicial")
 my_linked_list.print_list()
-my_linked_list.pop()
-print("removeu o 1")
+my_linked_list.set_value(2, 44)
 my_linked_list.print_list()
-my_linked_list.pop()
-print("removeu o 2")
-my_linked_list.print_list()
-print("removeu o 3")
-my_linked_list.pop()
-my_linked_list.print_list()
+# print("lista inicial")
+# my_linked_list.print_list()
+# my_linked_list.pop()
+# print("removeu o 1")
+# my_linked_list.print_list()
+# my_linked_list.pop()
+# print("removeu o 2")
+# my_linked_list.print_list()
+# print("adicionou no inicio")
+# my_linked_list.prepend(10)
+# my_linked_list.print_list()
+# print("adicionou no inicio")
+# my_linked_list.prepend(9)
+# my_linked_list.print_list()
+# print("removeu o ultimo")
+# my_linked_list.pop()
+# my_linked_list.print_list()
+# print("removeu o primeiro")
+# my_linked_list.pop_first()
+# my_linked_list.print_list()
+
