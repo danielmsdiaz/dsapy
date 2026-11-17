@@ -31,6 +31,8 @@ class LinkedList:
 
         return True
 
+
+
     def pop(self):
         if(self.head is None):
             return None
@@ -51,6 +53,7 @@ class LinkedList:
             self.length -= 1
             
             return temp
+        
 
 
 
