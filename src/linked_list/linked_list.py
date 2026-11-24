@@ -169,11 +169,12 @@ class LinkedList:
             return temp
 
 
-my_linked_list = LinkedList(2)
-my_linked_list.append(3)
-my_linked_list.append(45)
-my_linked_list.reverse()
-my_linked_list.print_list()
+if __name__ == "__main__":
+    my_linked_list = LinkedList(2)
+    my_linked_list.append(3)
+    my_linked_list.append(45)
+    my_linked_list.reverse()
+    my_linked_list.print_list()
 # print("lista inicial")
 # my_linked_list.print_list()
 # my_linked_list.pop()
